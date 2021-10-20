@@ -1,18 +1,27 @@
 import React from 'react';
 import {
   Box,
-  Button,
   Card,
-  CardActions,
-  CardContent,
   CardMedia,
   Container,
   Grid,
-  Stack,
   Typography,
 } from '@mui/material';
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const images = [
+  {
+    name: 'Phishing',
+    src: 'https://www.bbva.com/wp-content/uploads/2018/10/Portada-Phishing-1920x1441.jpg',
+  },
+  {
+    name: 'Malware',
+    src: 'https://noticias.cec.es/wp-content/uploads/2020/03/pdfExploit.jpg',
+  },
+  {
+    name: 'Social Engineering',
+    src: 'https://www.noticias.ltda/wp-content/uploads/2019/07/social-engineering.png',
+  },
+];
 
 const Main = () => (
   <>
@@ -23,7 +32,7 @@ const Main = () => (
         pb: 6,
       }}
     >
-      <Container maxWidth="sm">
+      <Container maxWidth="lg">
         <Typography
           component="h1"
           variant="h2"
@@ -31,7 +40,7 @@ const Main = () => (
           color="text.primary"
           gutterBottom
         >
-          Página de Prueba
+          Welcome!
         </Typography>
         <Typography
           variant="h5"
@@ -39,55 +48,22 @@ const Main = () => (
           color="text.secondary"
           paragraph
         >
-          Something short and leading about the collection below—its contents,
-          the creator, etc. Make it short and sweet, but not too short so folks
-          don&apos;t simply skip over it entirely.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis
+          luctus tincidunt. Nulla nulla velit, congue eu felis ut, aliquet
+          tempus quam. Praesent placerat, orci ut sagittis gravida, nulla mauris
+          luctus nisi, sit amet vulputate ex nulla in velit. Vivamus nunc dolor,
+          vulputate ac pretium at, egestas vitae urna. Praesent bibendum tempor
+          felis, sed lacinia purus porta lobortis. Praesent egestas aliquet
+          velit ac varius.
         </Typography>
-        <Stack
-          sx={{ pt: 4 }}
-          direction="row"
-          spacing={2}
-          justifyContent="center"
-        >
-          <Button variant="contained">Main call to action</Button>
-          <Button variant="outlined">Secondary action</Button>
-        </Stack>
       </Container>
     </Box>
     <Container sx={{ py: 8 }} maxWidth="md">
-      {/* End hero unit */}
       <Grid container spacing={4}>
-        {cards.map((card) => (
-          <Grid item key={card} xs={12} sm={6} md={4}>
-            <Card
-              sx={{
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-              }}
-            >
-              <CardMedia
-                component="img"
-                sx={{
-                  // 16:9
-                  pt: '56.25%',
-                }}
-                image="https://source.unsplash.com/random"
-                alt="random"
-              />
-              <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Heading
-                </Typography>
-                <Typography>
-                  This is a media card. You can use this section to describe the
-                  content.
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">View</Button>
-                <Button size="small">Edit</Button>
-              </CardActions>
+        {images.map(({ name, src }) => (
+          <Grid item xs={12} sm={6} md={4}>
+            <Card>
+              <CardMedia component="img" alt={name} height="160" image={src} />
             </Card>
           </Grid>
         ))}
