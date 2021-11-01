@@ -1,15 +1,18 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import MainLayout from './components/Layout';
-import Main from './views/Main';
+import MainView from './views/Main';
+import { routes } from './views/routes';
 
 const App = () => (
   <Router>
     <MainLayout>
       <Switch>
-        <Route path="/">
-          <Main />
-        </Route>
+        {routes.map((route) => (
+          <Route path={route.to} component={route.component} />
+        ))}
+
+        <Route path="/" component={MainView} />
       </Switch>
     </MainLayout>
   </Router>
