@@ -1,10 +1,5 @@
 import React from 'react';
-import { 
-  Card,
-  Grid,
-  Typography,
-  CardContent,
-} from '@mui/material';
+import { Card, Grid, Typography, CardContent } from '@mui/material';
 
 const CardGrid = () => (
   <Card
@@ -22,7 +17,7 @@ const CardGrid = () => (
       padding="20px"
       margin="5px"
     >
-      <Grid item md={3}>
+      <Grid item md={3} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -38,14 +33,14 @@ const CardGrid = () => (
           </CardContent>
         </Card>
       </Grid>
-      <Grid item md={3}>
+      <Grid item md={3} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
               Rodrigo Kwok
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective{' '}
+              adjective
             </Typography>
             <Typography variant="body2">
               well meaning and kindly.
@@ -54,7 +49,7 @@ const CardGrid = () => (
           </CardContent>
         </Card>
       </Grid>
-      <Grid item md={3}>
+      <Grid item md={3} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -67,10 +62,10 @@ const CardGrid = () => (
               well meaning and kindly.
               <br />a benevolent smile
             </Typography>
-          </CardContent>{' '}
+          </CardContent>
         </Card>
       </Grid>
-      <Grid item md={3}>
+      <Grid item md={3} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -86,7 +81,7 @@ const CardGrid = () => (
           </CardContent>
         </Card>
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -102,7 +97,7 @@ const CardGrid = () => (
           </CardContent>
         </Card>
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -118,7 +113,7 @@ const CardGrid = () => (
           </CardContent>
         </Card>
       </Grid>
-      <Grid item md={4}>
+      <Grid item md={4} xs={12}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div">
@@ -132,7 +127,7 @@ const CardGrid = () => (
               <br />a benevolent smile
             </Typography>
           </CardContent>
-        </Card>{' '}
+        </Card>
       </Grid>
     </Grid>
   </Card>
