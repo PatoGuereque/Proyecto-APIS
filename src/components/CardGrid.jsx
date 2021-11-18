@@ -104,11 +104,10 @@ const CardGrid = () => (
               Patricio Güereque
             </Typography>
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
+              Project Lead
             </Typography>
             <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
+              Fullstack developer and Computer Science undergrad ad ITESM
             </Typography>
           </CardContent>
         </Card>
