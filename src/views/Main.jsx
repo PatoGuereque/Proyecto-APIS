@@ -35,7 +35,7 @@ const Main = () => (
       <Container maxWidth="lg">
         <Typography
           component="h1"
-          variant="h2"
+          variant="h1"
           align="center"
           color="text.primary"
           gutterBottom
