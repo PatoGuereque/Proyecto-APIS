@@ -20,6 +20,7 @@ const Header = () => {
         <nav>
           {routes.map((route) => (
             <Link
+              key={route.name}
               component={RouterLink}
               to={route.to}
               variant="button"
