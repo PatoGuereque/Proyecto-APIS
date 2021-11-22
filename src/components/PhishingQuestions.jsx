@@ -1,73 +1,40 @@
+import ebay from '../emails/ebay';
+import google from '../emails/google';
+import microsoft from '../emails/microsoft';
+import word from '../emails/word';
+
 const questions = [
   {
-    questionText:
-      'Program that infects files and reproduces itself to infect other files and cause damage',
+    questionText: (userName) => ebay(userName),
     answerOptions: [
-      { answerText: 'Virus', isCorrect: true },
-      { answerText: 'Trojan', isCorrect: false },
-      { answerText: 'Worm', isCorrect: false },
-      { answerText: 'Ransomware', isCorrect: false },
+      { answerText: 'Phising', isCorrect: true },
+      { answerText: 'Legit', isCorrect: false },
     ],
+    explanation: 'porque tal y tal',
   },
   {
-    questionText:
-      'It disguises itself as a legitimate application while it does malicious activities in the background',
+    questionText: (userName) => google(userName),
     answerOptions: [
-      { answerText: 'Adware', isCorrect: false },
-      { answerText: 'Virus', isCorrect: false },
-      { answerText: 'Trojan', isCorrect: true },
-      { answerText: 'Rootkit', isCorrect: false },
+      { answerText: 'Phising', isCorrect: true },
+      { answerText: 'Legit', isCorrect: false },
     ],
+    explanation: 'porque tal y tal',
   },
   {
-    questionText:
-      'Program that tries to not harm your PC, but it tries to steals confidential data like passwords, users, history...',
+    questionText: (userName) => microsoft(userName),
     answerOptions: [
-      { answerText: 'Worm', isCorrect: false },
-      { answerText: 'Adware', isCorrect: false },
-      { answerText: 'Ransomware', isCorrect: false },
-      { answerText: 'Spyware', isCorrect: true },
+      { answerText: 'Phising', isCorrect: true },
+      { answerText: 'Legit', isCorrect: false },
     ],
+    explanation: 'porque tal y tal',
   },
   {
-    questionText:
-      'Program that exposes advertisements to the user without their consent or was not aware of said advertisements',
+    questionText: (userName) => word(userName),
     answerOptions: [
-      { answerText: 'Spyware', isCorrect: false },
-      { answerText: 'Commercialware', isCorrect: false },
-      { answerText: 'Adware', isCorrect: true },
-      { answerText: 'Rootkit', isCorrect: false },
+      { answerText: 'Phising', isCorrect: false },
+      { answerText: 'Legit', isCorrect: true },
     ],
-  },
-  {
-    questionText:
-      "Program similar to a Trojan in that it creates a backdoor to have access to the victim's computer, but it's more dangerous because it embeds itself to the Operating System of the machine.",
-    answerOptions: [
-      { answerText: 'Virus', isCorrect: false },
-      { answerText: 'Randomware', isCorrect: false },
-      { answerText: 'Rootkit', isCorrect: true },
-      { answerText: 'Worm', isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      'The objective of this malware is to infect as many computers as possible by transmitting itself on the network.',
-    answerOptions: [
-      { answerText: 'Worm', isCorrect: true },
-      { answerText: 'Trojan', isCorrect: false },
-      { answerText: 'Netbot', isCorrect: false },
-      { answerText: 'Virus', isCorrect: false },
-    ],
-  },
-  {
-    questionText:
-      "Program that takes a computer's data hostage and demands the victims for money in order for them to get back their data.",
-    answerOptions: [
-      { answerText: 'Rootkit', isCorrect: false },
-      { answerText: 'MITM', isCorrect: false },
-      { answerText: 'DNS', isCorrect: false },
-      { answerText: 'Ransomware', isCorrect: true },
-    ],
+    explanation: 'porque tal y tal',
   },
 ];
 

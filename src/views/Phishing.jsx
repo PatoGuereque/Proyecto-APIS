@@ -1,9 +1,26 @@
-import { Container, Typography, Box, Button } from '@mui/material';
+import {
+  Container,
+  Typography,
+  Box,
+  Button,
+  TextField,
+  Grid,
+} from '@mui/material';
 import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import PhishingQuizView from './PhishingQuiz';
 
 const PhishingView = () => {
   const [quizActive, setQuizActive] = useState(false);
+  const [name, setName] = useState('User');
+  const [email, setEmail] = useState('user@example.com');
+  const { handleSubmit, control } = useForm();
+
+  const onSubmit = (data) => {
+    setName(data.name);
+    setEmail(data.email);
+    setQuizActive(true);
+  };
 
   return (
     <Box
@@ -15,7 +32,7 @@ const PhishingView = () => {
       }}
     >
       {quizActive ? (
-        <PhishingQuizView />
+        <PhishingQuizView userName={name} userEmail={email} />
       ) : (
         <Container maxWidth="lg" align="center">
           <Typography
@@ -40,13 +57,41 @@ const PhishingView = () => {
             can or cannot be real, these are just for the exercise.
           </Typography>
 
-          <Button
-            variant="contained"
-            size="large"
-            onClick={() => setQuizActive(true)}
-          >
-            Start
-          </Button>
+          <Grid container justifyContent="center">
+            <form>
+              <Grid item xs={12} mt={1}>
+                <Controller
+                  name="name"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <TextField onChange={onChange} value={value} label="Name" />
+                  )}
+                />
+              </Grid>
+              <Grid item xs={12} mt={1}>
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <TextField
+                      onChange={onChange}
+                      value={value}
+                      label="Email"
+                    />
+                  )}
+                />
+              </Grid>
+              <Grid item xs={12} mt={1}>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={handleSubmit(onSubmit)}
+                >
+                  Start
+                </Button>
+              </Grid>
+            </form>
+          </Grid>
         </Container>
       )}
     </Box>

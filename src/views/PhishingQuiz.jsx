@@ -1,22 +1,36 @@
 import { Container, Typography, Box, Button } from '@mui/material';
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import questions from '../components/PhishingQuestions';
+import FakeEmail from '../components/FakeEmail';
 
-const PhishingQuizView = () => {
+const PhishingQuizView = ({ userName, userEmail }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [emailContent, setEmailContent] = useState(
+    questions[0].questionText(userName)
+  );
+  const [showExplanation, setShowExplanation] = useState(false);
+
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
     }
 
+    setShowExplanation(true);
+  };
+
+  const handleNextButton = () => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
     } else {
       setShowScore(true);
     }
+
+    setShowExplanation(false);
+    setEmailContent(questions[currentQuestion + 1].questionText(userName));
   };
 
   return (
@@ -63,9 +77,14 @@ const PhishingQuizView = () => {
             Question {currentQuestion + 1}/{questions.length}
           </Typography>
 
-          <Typography variant="subtitle1" color="text.secondary">
-            {questions[currentQuestion].questionText}
-          </Typography>
+          <FakeEmail
+            fromName={emailContent.fromName}
+            fromEmail={emailContent.fromEmail}
+            toEmail={userEmail}
+            subject={emailContent.subject}
+            letter={emailContent.letter}
+            emailTemplateHtml={emailContent.emailTemplateHtml}
+          />
 
           <Typography
             variant="h5"
@@ -82,10 +101,32 @@ const PhishingQuizView = () => {
               </Button>
             ))}
           </Typography>
+
+          {showExplanation ? (
+            <>
+              <Typography mb={2}>
+                {questions[currentQuestion].explanation}
+              </Typography>
+              <Button
+                variant="contained"
+                size="large"
+                onClick={() => handleNextButton()}
+              >
+                Next
+              </Button>
+            </>
+          ) : (
+            <></>
+          )}
         </Container>
       )}
     </Box>
   );
+};
+
+PhishingQuizView.propTypes = {
+  userName: PropTypes.string,
+  userEmail: PropTypes.string,
 };
 
 export default PhishingQuizView;
