@@ -25,12 +25,12 @@ const PhishingQuizView = ({ userName, userEmail }) => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
+      setEmailContent(questions[currentQuestion + 1].questionText(userName));
     } else {
       setShowScore(true);
     }
 
     setShowExplanation(false);
-    setEmailContent(questions[currentQuestion + 1].questionText(userName));
   };
 
   return (
@@ -59,6 +59,7 @@ const PhishingQuizView = ({ userName, userEmail }) => {
             onClick={() => {
               setScore(0);
               setCurrentQuestion(0);
+              setEmailContent(questions[0].questionText(userName));
               setShowScore(false);
             }}
           >
