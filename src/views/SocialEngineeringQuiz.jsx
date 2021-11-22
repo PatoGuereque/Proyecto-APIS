@@ -6,14 +6,17 @@ import SocialEngineeringVideos from './SocialEngineeringVideos';
 const SocialEngineeringQuizView = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showVideos, setShowVideos] = useState(false);
-  const [showExplanations, setShowExplanations] = useState(false);
+  const [yesText, setYesText] = useState('Yes');
+  const [noText, setNoText] = useState('No');
 
-  const handleAnswerOptionClick = () => {
-    setShowExplanations(true);
+  const handleAnswerOptionClick = (newText, oldText) => {
+    if (oldText === 'Yes') setYesText(`${oldText}: ${newText}`);
+    else setNoText(`${oldText}: ${newText}`);
   };
 
   const handleNextButton = () => {
-    setShowExplanations(false);
+    setNoText('No');
+    setYesText('Yes');
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
@@ -77,11 +80,14 @@ const SocialEngineeringQuizView = () => {
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <Button
                 key={answerOption.answerText}
-                onClick={() => handleAnswerOptionClick()}
+                onClick={() =>
+                  handleAnswerOptionClick(
+                    answerOption.explanation,
+                    answerOption.answerText
+                  )
+                }
               >
-                {showExplanations
-                  ? `${answerOption.answerText}: ${answerOption.explanation}`
-                  : answerOption.answerText}
+                {answerOption.answerText === 'Yes' ? yesText : noText}
               </Button>
             ))}
           </Typography>
