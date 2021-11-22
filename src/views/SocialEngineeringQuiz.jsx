@@ -8,8 +8,7 @@ const SocialEngineeringQuizView = () => {
   const [showVideos, setShowVideos] = useState(false);
   const [showExplanations, setShowExplanations] = useState(false);
 
-  const handleAnswerOptionClick = (isCorrect) => {
-    console.log(isCorrect);
+  const handleAnswerOptionClick = () => {
     setShowExplanations(true);
   };
 
@@ -78,7 +77,7 @@ const SocialEngineeringQuizView = () => {
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <Button
                 key={answerOption.answerText}
-                onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
+                onClick={() => handleAnswerOptionClick()}
               >
                 {showExplanations
                   ? `${answerOption.answerText}: ${answerOption.explanation}`
