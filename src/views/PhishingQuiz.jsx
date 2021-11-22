@@ -9,7 +9,7 @@ const PhishingQuizView = ({ userName, userEmail }) => {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
   const [emailContent, setEmailContent] = useState(
-    questions[0].questionText(userName)
+    questions[0].questionText(userName, userEmail)
   );
   const [showExplanation, setShowExplanation] = useState(false);
 
@@ -25,7 +25,9 @@ const PhishingQuizView = ({ userName, userEmail }) => {
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
-      setEmailContent(questions[currentQuestion + 1].questionText(userName));
+      setEmailContent(
+        questions[currentQuestion + 1].questionText(userName, userEmail)
+      );
     } else {
       setShowScore(true);
     }
@@ -59,7 +61,7 @@ const PhishingQuizView = ({ userName, userEmail }) => {
             onClick={() => {
               setScore(0);
               setCurrentQuestion(0);
-              setEmailContent(questions[0].questionText(userName));
+              setEmailContent(questions[0].questionText(userName, userEmail));
               setShowScore(false);
             }}
           >
