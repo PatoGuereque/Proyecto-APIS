@@ -1,6 +1,6 @@
 import AboutView from './About';
 import MainView from './Main';
-import MalwareView from './Malware';
+import MalwareView from'./Malware/Malware';
 import PhishingView from './Phishing';
 import SocialEngineeringView from './SocialEngineering';
 import ExampleEmailView from './ExampleEmail';
