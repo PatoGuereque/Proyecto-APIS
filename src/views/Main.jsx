@@ -64,7 +64,7 @@ const Main = () => (
         </Typography>
       </Container>
     </Box>
-    <Container sx={{ py: 8 }} maxWidth="md">
+    <Container sx={{ py: 8}} maxWidth="lg">
       <Grid container spacing={4}>
         {images.map(({ name, src, to }) => (
           <Grid key={name} item xs={12} sm={6} md={4}>
