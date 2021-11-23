@@ -31,7 +31,7 @@ const questions = [
       {
         answerText: 'No',
         explanation:
-          'Excellent. Although they take advantage of the fall of WhatsApp to sound more convincing, it is important to see the small details. A quick Google search reveals that Karelis Hernández is not the head of WhatsApp. In addition, a change like the one that comes in the message would have easily reached the news, since WhatsApp is free and does not charge for its services.',
+          'Excellent. Although they take advantage of the fall of WhatsApp to sound more convincing, it is important to see the small details. A quick Google search reveals that Karelis Morrison is not the head of WhatsApp. In addition, a change like the one that comes in the message would have easily reached the news, since WhatsApp is free and does not charge for its services.',
         isCorrect: true,
       },
     ],

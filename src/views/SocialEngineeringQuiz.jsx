@@ -67,12 +67,20 @@ const SocialEngineeringQuizView = () => {
           </Typography>
 
           <Typography variant="subtitle1" color="text.secondary">
-            <strong>Situation:</strong> {questions[currentQuestion].situation}
+            {questions[currentQuestion].situation}
           </Typography>
 
           <Typography variant="subtitle1" color="text.secondary">
             <strong>Question:</strong> {questions[currentQuestion].questionText}
           </Typography>
+
+          {currentQuestion === 1 ? (
+              <>
+                <img alt="Whatsapp Text" src="https://www.linkpicture.com/q/Screen-Shot-2021-11-23-at-0.47.16.png" />
+              </>
+            ) : (
+              <></>
+          )}
 
           <Typography
             variant="h5"
