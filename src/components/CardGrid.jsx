@@ -1,135 +1,102 @@
 import React from 'react';
-import { Card, Grid, Typography, CardContent } from '@mui/material';
+import {
+  Grid,
+  CardContent,
+  Typography,
+  CardMedia,
+  Avatar,
+  Stack,
+  IconButton,
+} from '@mui/material';
+import {
+  Mail as MailIcon,
+  Twitter as TwitterIcon,
+  GitHub as GitHubIcon,
+} from '@mui/icons-material';
+import CardWithShadow from './CardWithShadow';
+import { contributors } from './contributors';
 
 const CardGrid = () => (
-  <Card
-    variant="outlined"
-    style={{ margin: 'auto', flexDirection: 'column', maxWidth: '95vw' }}
+  <Grid
+    container
+    display="flex"
+    direction="row"
+    alignItems="center"
+    justifyContent="center"
+    rowSpacing={2}
+    columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+    padding="20px"
   >
-    <Grid
-      container
-      display="flex"
-      direction="row"
-      alignItems="center"
-      justifyContent="center"
-      rowSpacing={2}
-      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-      padding="20px"
-      margin="5px"
-    >
-      <Grid item md={3} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Joel Chávez
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={3} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Rodrigo Kwok
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={3} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Daniel David
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={3} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Omar Balboa
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={4} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Alex Vargas
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Programmer
-            </Typography>
-            <Typography variant="body2">
-              Computer Science student
-              <br /> at ITESM monterrey
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={4} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Patricio Güereque
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Project Lead
-            </Typography>
-            <Typography variant="body2">
-              Fullstack developer and Computer Science undergrad ad ITESM
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-      <Grid item md={4} xs={12}>
-        <Card variant="outlined">
-          <CardContent>
-            <Typography variant="h5" component="div">
-              Cesar Martínez
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              adjective
-            </Typography>
-            <Typography variant="body2">
-              well meaning and kindly.
-              <br />a benevolent smile
-            </Typography>
-          </CardContent>
-        </Card>
-      </Grid>
-    </Grid>
-  </Card>
+    {contributors.map(
+      ({
+        name,
+        xs,
+        sm,
+        md,
+        role,
+        description,
+        avatar,
+        mail,
+        twitter,
+        github,
+      }) => (
+        <Grid item xs={xs} sm={sm} md={md} key={name}>
+          <CardWithShadow init={3} hovered={10}>
+            <CardMedia align="center">
+              <Avatar
+                alt={name}
+                src={avatar}
+                sx={{
+                  mt: 2,
+                  width: 100,
+                  height: 100,
+                }}
+              />
+            </CardMedia>
+            <CardContent align="center">
+              <Typography variant="h5" component="div">
+                {name}
+              </Typography>
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {role}
+              </Typography>
+              <Typography variant="body2">{description}</Typography>
+
+              <Stack direction="row" spacing={2} display="inline-flex">
+                {mail && (
+                  <IconButton
+                    aria-label="delete"
+                    size="large"
+                    href={`mailto:${mail}`}
+                  >
+                    <MailIcon fontSize="inherit" />
+                  </IconButton>
+                )}
+                {twitter && (
+                  <IconButton
+                    aria-label="delete"
+                    size="large"
+                    href={`https://twitter.com/${twitter}`}
+                  >
+                    <TwitterIcon fontSize="inherit" />
+                  </IconButton>
+                )}
+                {github && (
+                  <IconButton
+                    aria-label="delete"
+                    size="large"
+                    href={`https://github.com/${github}`}
+                  >
+                    <GitHubIcon fontSize="inherit" />
+                  </IconButton>
+                )}
+              </Stack>
+            </CardContent>
+          </CardWithShadow>
+        </Grid>
+      )
+    )}
+  </Grid>
 );
 
 export default CardGrid;
