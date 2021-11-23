@@ -4,7 +4,6 @@ import MainView from './Main';
 import MalwareGloss from './Malware/MalwareGloss';
 import PhishingView from './Phishing';
 import SocialEngineeringView from './SocialEngineering';
-import ExampleEmailView from './ExampleEmail';
 
 const routes = [
   {
@@ -31,11 +30,6 @@ const routes = [
     name: 'About',
     to: '/about',
     component: AboutView,
-  },
-  {
-    name: 'Example Email',
-    to: '/example',
-    component: ExampleEmailView,
   },
 ];
 
