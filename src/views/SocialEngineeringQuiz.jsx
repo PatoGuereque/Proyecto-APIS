@@ -6,17 +6,17 @@ import SocialEngineeringVideos from './SocialEngineeringVideos';
 const SocialEngineeringQuizView = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showVideos, setShowVideos] = useState(false);
-  const [yesText, setYesText] = useState('Yes');
-  const [noText, setNoText] = useState('No');
+  const [disableButton, setDisableButton] = useState(false);
+  const [explanation, setExplanation] = useState('');
+  const [showExplanation, setShowExplanation] = useState(false);
 
-  const handleAnswerOptionClick = (newText, oldText) => {
-    if (oldText === 'Yes') setYesText(`${oldText}: ${newText}`);
-    else setNoText(`${oldText}: ${newText}`);
+  const handleAnswerOptionClick = (_explanation) => {
+    setShowExplanation(true);
+    setExplanation(_explanation);
+    setDisableButton(true);
   };
 
   const handleNextButton = () => {
-    setNoText('No');
-    setYesText('Yes');
 
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
@@ -24,6 +24,9 @@ const SocialEngineeringQuizView = () => {
     } else {
       setShowVideos(true);
     }
+
+    setShowExplanation(false);
+    setDisableButton(false);
   };
 
   return (
@@ -64,12 +67,20 @@ const SocialEngineeringQuizView = () => {
           </Typography>
 
           <Typography variant="subtitle1" color="text.secondary">
-            <strong>Situation:</strong> {questions[currentQuestion].situation}
+            {questions[currentQuestion].situation}
           </Typography>
 
           <Typography variant="subtitle1" color="text.secondary">
             <strong>Question:</strong> {questions[currentQuestion].questionText}
           </Typography>
+
+          {currentQuestion === 1 ? (
+              <>
+                <img alt="Whatsapp Text" src="https://www.linkpicture.com/q/Screen-Shot-2021-11-23-at-0.47.16.png" />
+              </>
+            ) : (
+              <></>
+          )}
 
           <Typography
             variant="h5"
@@ -80,25 +91,37 @@ const SocialEngineeringQuizView = () => {
             {questions[currentQuestion].answerOptions.map((answerOption) => (
               <Button
                 key={answerOption.answerText}
-                onClick={() =>
-                  handleAnswerOptionClick(
-                    answerOption.explanation,
-                    answerOption.answerText
-                  )
-                }
+                onClick={() => handleAnswerOptionClick(answerOption.explanation)}
+                variant="contained"
+                sx={{
+                  mr: 1,
+                  ml: 1,
+                  mt: 2,
+                }}
+                disabled={disableButton}
               >
-                {answerOption.answerText === 'Yes' ? yesText : noText}
+                {answerOption.answerText}
               </Button>
             ))}
+
+            {showExplanation ? (
+              <>
+                <Typography mb={2} mt={2}>
+                  {explanation}
+                </Typography>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={() => handleNextButton()}
+                >
+                  Next
+                </Button>
+              </>
+            ) : (
+              <></>
+            )}
           </Typography>
 
-          <Button
-            variant="contained"
-            size="large"
-            onClick={() => handleNextButton()}
-          >
-            Next
-          </Button>
         </Container>
       )}
     </Box>
