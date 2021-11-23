@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Button, Grid } from '@mui/material';
 import React, { useState } from 'react';
-import questions from '../components/SocialEngineeringQuestions';
+import questions from '../../components/SocialEngineeringQuestions';
 import SocialEngineeringVideos from './SocialEngineeringVideos';
 
 const SocialEngineeringQuizView = () => {

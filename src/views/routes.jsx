@@ -2,8 +2,8 @@ import AboutView from './About';
 import MainView from './Main';
 
 import MalwareGloss from './Malware/MalwareGloss';
-import PhishingView from './Phishing';
-import SocialEngineeringView from './SocialEngineering';
+import PhishingView from './Phishing/Phishing';
+import SocialEngineeringView from './SocialEngineering/SocialEngineering';
 
 const routes = [
   {

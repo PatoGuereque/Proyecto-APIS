@@ -1,8 +1,8 @@
 import { Container, Typography, Box, Button } from '@mui/material';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import questions from '../components/PhishingQuestions';
-import FakeEmail from '../components/FakeEmail';
+import questions from '../../components/PhishingQuestions';
+import FakeEmail from '../../components/FakeEmail';
 
 const PhishingQuizView = ({ userName, userEmail }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
