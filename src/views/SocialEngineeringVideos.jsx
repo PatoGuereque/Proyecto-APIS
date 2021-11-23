@@ -16,7 +16,7 @@ const SocialEngineeringVideos = () => (
       </Typography>
       <ReactPlayer url="https://www.youtu.be/BOMgZCfpGVU" />
     </Grid>
-    <Grid item xs={12} md={6} mt={2}>
+    <Grid item xs={12} md={6}>
       <Typography
         component="h1"
         variant="h4"
