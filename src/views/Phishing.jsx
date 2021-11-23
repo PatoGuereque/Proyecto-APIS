@@ -26,8 +26,7 @@ const PhishingView = () => {
     <Box
       sx={{
         bgcolor: 'background.paper',
-        pt: 8,
-        pb: 6,
+        pt: quizActive ? 0 : 8,
         justifyContent: 'center',
       }}
     >

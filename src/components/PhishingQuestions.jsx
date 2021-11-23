@@ -5,7 +5,8 @@ import microsoftExercise4 from '../emails/microsoftExercise4';
 
 const questions = [
   {
-    questionText: (userName, userEmail) => googleExercise1(userName, userEmail),
+    questionText: (userName, userEmail) =>
+      googleExercise1({ name: userName, email: userEmail }),
     answerOptions: [
       { answerText: 'Phishing', isCorrect: true },
       { answerText: 'Legit', isCorrect: false },
@@ -14,7 +15,8 @@ const questions = [
       "This is phishing. When you hover on the redirect links, you can see that the URLs are similar but not the same as Google's official URLs. When clicking on redirect links, you need to make sure that the URLs are the correct ones.",
   },
   {
-    questionText: (userName, userEmail) => ebayExercise2(userName, userEmail),
+    questionText: (userName, userEmail) =>
+      ebayExercise2({ name: userName, email: userEmail }),
     answerOptions: [
       { answerText: 'Phishing', isCorrect: true },
       { answerText: 'Legit', isCorrect: false },
@@ -23,7 +25,8 @@ const questions = [
       'This is phishing. The domain of the email from which the fax was received is "ebay-support.com" while the hyperlink in the button "Protect your account" points to a page with the ending "mailru382.co"',
   },
   {
-    questionText: (userName, userEmail) => wordExercise3(userName, userEmail),
+    questionText: (userName, userEmail) =>
+      wordExercise3({ name: userName, email: userEmail }),
     answerOptions: [
       { answerText: 'Phishing', isCorrect: true },
       { answerText: 'Legit', isCorrect: false },
@@ -33,7 +36,7 @@ const questions = [
   },
   {
     questionText: (userName, userEmail) =>
-      microsoftExercise4(userName, userEmail),
+      microsoftExercise4({ name: userName, email: userEmail }),
     answerOptions: [
       { answerText: 'Phishing', isCorrect: false },
       { answerText: 'Legit', isCorrect: true },

@@ -40,7 +40,6 @@ const PhishingQuizView = ({ userName, userEmail }) => {
       sx={{
         bgcolor: 'background.paper',
         pt: 8,
-        pb: 6,
         justifyContent: 'center',
       }}
     >
@@ -69,59 +68,68 @@ const PhishingQuizView = ({ userName, userEmail }) => {
           </Button>
         </Container>
       ) : (
-        <Container maxWidth="lg" align="center">
-          <Typography
-            component="h1"
-            variant="h4"
-            align="center"
-            color="text.primary"
-            gutterBottom
-          >
-            Question {currentQuestion + 1}/{questions.length}
-          </Typography>
+        <>
+          <Container maxWidth="lg" align="center">
+            <Typography
+              component="h1"
+              variant="h4"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Question {currentQuestion + 1}/{questions.length}
+            </Typography>
 
+            <Typography
+              variant="h5"
+              align="center"
+              color="text.primary"
+              gutterBottom
+            >
+              Is the following email phishing or legit?
+            </Typography>
+
+            {questions[currentQuestion].answerOptions.map((answerOption) => (
+              <Button
+                variant="contained"
+                key={answerOption.answerText}
+                onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
+                sx={{
+                  mr: 1,
+                  ml: 1,
+                }}
+                disabled={showExplanation}
+              >
+                {answerOption.answerText}
+              </Button>
+            ))}
+
+            {showExplanation ? (
+              <>
+                <Typography mb={2} mt={2}>
+                  {questions[currentQuestion].explanation}
+                </Typography>
+                <Button
+                  variant="contained"
+                  size="large"
+                  onClick={() => handleNextButton()}
+                >
+                  Next
+                </Button>
+              </>
+            ) : (
+              <></>
+            )}
+          </Container>
           <FakeEmail
-            fromName={emailContent.fromName}
+            fromName={userName}
             fromEmail={emailContent.fromEmail}
             toEmail={userEmail}
             subject={emailContent.subject}
             letter={emailContent.letter}
             emailTemplateHtml={emailContent.emailTemplateHtml}
           />
-
-          <Typography
-            variant="h5"
-            align="center"
-            color="text.secondary"
-            paragraph
-          >
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <Button
-                key={answerOption.answerText}
-                onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
-              >
-                {answerOption.answerText}
-              </Button>
-            ))}
-          </Typography>
-
-          {showExplanation ? (
-            <>
-              <Typography mb={2}>
-                {questions[currentQuestion].explanation}
-              </Typography>
-              <Button
-                variant="contained"
-                size="large"
-                onClick={() => handleNextButton()}
-              >
-                Next
-              </Button>
-            </>
-          ) : (
-            <></>
-          )}
-        </Container>
+        </>
       )}
     </Box>
   );
