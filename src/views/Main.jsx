@@ -1,25 +1,31 @@
 import React from 'react';
 import {
   Box,
-  Card,
+  CardActionArea,
+  CardContent,
   CardMedia,
   Container,
   Grid,
   Typography,
 } from '@mui/material';
+import { Link } from 'react-router-dom';
+import CardWithShadow from '../components/CardWithShadow';
 
 const images = [
   {
     name: 'Phishing',
     src: 'https://www.bbva.com/wp-content/uploads/2018/10/Portada-Phishing-1920x1441.jpg',
+    to: '/phishing',
   },
   {
     name: 'Malware',
     src: 'https://noticias.cec.es/wp-content/uploads/2020/03/pdfExploit.jpg',
+    to: '/malware',
   },
   {
     name: 'Social Engineering',
     src: 'https://www.noticias.ltda/wp-content/uploads/2019/07/social-engineering.png',
+    to: '/social-engineering',
   },
 ];
 
@@ -60,11 +66,26 @@ const Main = () => (
     </Box>
     <Container sx={{ py: 8 }} maxWidth="md">
       <Grid container spacing={4}>
-        {images.map(({ name, src }) => (
+        {images.map(({ name, src, to }) => (
           <Grid key={name} item xs={12} sm={6} md={4}>
-            <Card>
-              <CardMedia component="img" alt={name} height="160" image={src} />
-            </Card>
+            <CardWithShadow init={2} hovered={8}>
+              <CardActionArea to={to} component={Link}>
+                <CardMedia
+                  component="img"
+                  alt={name}
+                  height="160"
+                  image={src}
+                />
+                <CardContent
+                  sx={{
+                    justifyContent: 'center',
+                    display: 'flex',
+                  }}
+                >
+                  <Typography variant="h5">{name}</Typography>
+                </CardContent>
+              </CardActionArea>
+            </CardWithShadow>
           </Grid>
         ))}
       </Grid>
