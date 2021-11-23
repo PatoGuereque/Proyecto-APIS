@@ -1,10 +1,10 @@
-import { Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Box, Grid, Typography } from '@mui/material';
 import ReactPlayer from 'react-player/youtube';
 
 const SocialEngineeringVideos = () => (
   <>
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} lg={6}>
       <Typography
         component="h1"
         variant="h4"
@@ -14,9 +14,15 @@ const SocialEngineeringVideos = () => (
       >
         Impersonating TI Personnel
       </Typography>
-      <ReactPlayer url="https://www.youtu.be/BOMgZCfpGVU" />
+      <Box
+        sx={{
+          maxWidth: '640px',
+        }}
+      >
+        <ReactPlayer url="https://www.youtu.be/BOMgZCfpGVU" width="100%" />
+      </Box>
     </Grid>
-    <Grid item xs={12} md={6} mt={2}>
+    <Grid item xs={12} lg={6}>
       <Typography
         component="h1"
         variant="h4"
@@ -26,7 +32,13 @@ const SocialEngineeringVideos = () => (
       >
         Cloning RFID Card
       </Typography>
-      <ReactPlayer url="https://youtu.be/Mk9CA8MkUXY" />
+      <Box
+        sx={{
+          maxWidth: '640px',
+        }}
+      >
+        <ReactPlayer url="https://youtu.be/Mk9CA8MkUXY" width="100%" />
+      </Box>
     </Grid>
   </>
 );

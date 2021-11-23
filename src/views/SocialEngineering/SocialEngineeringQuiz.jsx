@@ -1,6 +1,6 @@
 import { Container, Typography, Box, Button, Grid } from '@mui/material';
 import React, { useState } from 'react';
-import questions from '../components/SocialEngineeringQuestions';
+import questions from '../../components/SocialEngineeringQuestions';
 import SocialEngineeringVideos from './SocialEngineeringVideos';
 
 const SocialEngineeringQuizView = () => {
@@ -17,7 +17,6 @@ const SocialEngineeringQuizView = () => {
   };
 
   const handleNextButton = () => {
-
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
@@ -39,9 +38,9 @@ const SocialEngineeringQuizView = () => {
       }}
     >
       {showVideos ? (
-        <Grid container align="center">
+        <Grid container align="center" spacing={2}>
           <SocialEngineeringVideos />
-          <Grid item xs={12}>
+          <Grid item xs={12} mt={2}>
             <Button
               variant="contained"
               size="large"
@@ -50,7 +49,7 @@ const SocialEngineeringQuizView = () => {
                 setShowVideos(false);
               }}
             >
-              From Start
+              Restart Quiz
             </Button>
           </Grid>
         </Grid>
@@ -74,54 +73,52 @@ const SocialEngineeringQuizView = () => {
             <strong>Question:</strong> {questions[currentQuestion].questionText}
           </Typography>
 
-          {currentQuestion === 1 ? (
-              <>
-                <img alt="Whatsapp Text" src="https://www.linkpicture.com/q/Screen-Shot-2021-11-23-at-0.47.16.png" />
-              </>
-            ) : (
-              <></>
+          {currentQuestion === 1 && (
+            <Box
+              sx={{
+                maxWidth: '350px',
+                maxHeight: '100%',
+              }}
+            >
+              <img
+                alt="Whatsapp Text"
+                src="https://www.linkpicture.com/q/Screen-Shot-2021-11-23-at-0.47.16.png"
+                width="100%"
+                height="100%"
+              />
+            </Box>
           )}
 
-          <Typography
-            variant="h5"
-            align="center"
-            color="text.secondary"
-            paragraph
-          >
-            {questions[currentQuestion].answerOptions.map((answerOption) => (
+          {questions[currentQuestion].answerOptions.map((answerOption) => (
+            <Button
+              key={answerOption.answerText}
+              onClick={() => handleAnswerOptionClick(answerOption.explanation)}
+              variant="contained"
+              sx={{
+                mr: 1,
+                ml: 1,
+                mt: 2,
+              }}
+              disabled={disableButton}
+            >
+              {answerOption.answerText}
+            </Button>
+          ))}
+
+          {showExplanation && (
+            <>
+              <Typography mb={2} mt={2} variant="body1">
+                {explanation}
+              </Typography>
               <Button
-                key={answerOption.answerText}
-                onClick={() => handleAnswerOptionClick(answerOption.explanation)}
                 variant="contained"
-                sx={{
-                  mr: 1,
-                  ml: 1,
-                  mt: 2,
-                }}
-                disabled={disableButton}
+                size="large"
+                onClick={() => handleNextButton()}
               >
-                {answerOption.answerText}
+                Next
               </Button>
-            ))}
-
-            {showExplanation ? (
-              <>
-                <Typography mb={2} mt={2}>
-                  {explanation}
-                </Typography>
-                <Button
-                  variant="contained"
-                  size="large"
-                  onClick={() => handleNextButton()}
-                >
-                  Next
-                </Button>
-              </>
-            ) : (
-              <></>
-            )}
-          </Typography>
-
+            </>
+          )}
         </Container>
       )}
     </Box>

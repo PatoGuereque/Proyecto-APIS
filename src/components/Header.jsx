@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Link, Toolbar, Typography } from '@mui/material';
+import { AppBar, Link, Stack, Toolbar, Typography } from '@mui/material';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { routes } from '../views/routes';
 
@@ -18,19 +18,22 @@ const Header = () => {
           TRY.PHISH.ME
         </Typography>
         <nav>
-          {routes.map((route) => (
-            <Link
-              key={route.name}
-              component={RouterLink}
-              to={route.to}
-              variant="button"
-              color="#fff"
-              underline={location.pathname === route.to ? 'always' : 'hover'}
-              sx={{ my: 1, mx: 1.5 }}
-            >
-              {route.name}
-            </Link>
-          ))}
+          <Stack direction="row" flexWrap="wrap" justifyContent="center">
+            {routes.map((route) => (
+              <Link
+                key={route.name}
+                component={RouterLink}
+                to={route.to}
+                variant="button"
+                color="#fff"
+                underline={location.pathname === route.to ? 'always' : 'hover'}
+                sx={{ my: 1, mx: 1.5 }}
+                noWrap
+              >
+                {route.name}
+              </Link>
+            ))}
+          </Stack>
         </nav>
       </Toolbar>
     </AppBar>
