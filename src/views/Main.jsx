@@ -48,13 +48,12 @@ const Main = () => (
           color="text.secondary"
           paragraph
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis
-          luctus tincidunt. Nulla nulla velit, congue eu felis ut, aliquet
-          tempus quam. Praesent placerat, orci ut sagittis gravida, nulla mauris
-          luctus nisi, sit amet vulputate ex nulla in velit. Vivamus nunc dolor,
-          vulputate ac pretium at, egestas vitae urna. Praesent bibendum tempor
-          felis, sed lacinia purus porta lobortis. Praesent egestas aliquet
-          velit ac varius.
+          Hello! this is <b>try.phish.me</b>, a site where you can learn how to protect
+          your personal data online. <br />Nowadays, there are many threats to our
+          online privacy and here we chose three of the most common ones to shed a light on these posible attacks. Do not
+          know what phising is? Are you aware of the types of malware there
+          are? Ever heard about Social Engineering? No? Do not worry, we are here
+          to help.
         </Typography>
       </Container>
     </Box>

@@ -1,6 +1,7 @@
 import AboutView from './About';
 import MainView from './Main';
-import MalwareView from './Malware';
+
+import MalwareGloss from './Malware/MalwareGloss';
 import PhishingView from './Phishing';
 import SocialEngineeringView from './SocialEngineering';
 
@@ -18,7 +19,7 @@ const routes = [
   {
     name: 'Malware',
     to: '/malware',
-    component: MalwareView,
+    component: MalwareGloss,
   },
   {
     name: 'Social Engineering',
