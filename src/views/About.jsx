@@ -1,12 +1,14 @@
 import React from 'react';
-import Typography from '@mui/material/Typography';
+import { Typography, Box } from '@mui/material';
 import CardGrid from '../components/CardGrid';
 
 const AboutView = () => (
   <>
-    <Typography padding="10px" variant="h2" component="div">
-      About us
-    </Typography>
+    <Box sx={{ justifyContent: 'center', display: 'flex' }}>
+      <Typography padding="10px" variant="h2" component="div">
+        About us
+      </Typography>
+    </Box>
     <CardGrid />
   </>
 );

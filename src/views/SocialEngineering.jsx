@@ -45,7 +45,7 @@ const SocialEngineeringView = () => {
             size="large"
             onClick={() => setQuizActive(true)}
           >
-            Start
+            Start Quiz
           </Button>
         </Container>
       )}

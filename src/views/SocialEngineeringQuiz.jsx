@@ -38,9 +38,9 @@ const SocialEngineeringQuizView = () => {
       }}
     >
       {showVideos ? (
-        <Grid container align="center">
+        <Grid container align="center" spacing={2}>
           <SocialEngineeringVideos />
-          <Grid item xs={12}>
+          <Grid item xs={12} mt={2}>
             <Button
               variant="contained"
               size="large"
@@ -49,7 +49,7 @@ const SocialEngineeringQuizView = () => {
                 setShowVideos(false);
               }}
             >
-              From Start
+              Restart Quiz
             </Button>
           </Grid>
         </Grid>
@@ -74,13 +74,19 @@ const SocialEngineeringQuizView = () => {
           </Typography>
 
           {currentQuestion === 1 && (
-            <>
+            <Box
+              sx={{
+                maxWidth: '350px',
+                maxHeight: '100%',
+              }}
+            >
               <img
                 alt="Whatsapp Text"
                 src="https://www.linkpicture.com/q/Screen-Shot-2021-11-23-at-0.47.16.png"
+                width="100%"
+                height="100%"
               />
-              <br />
-            </>
+            </Box>
           )}
 
           {questions[currentQuestion].answerOptions.map((answerOption) => (

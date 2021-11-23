@@ -86,7 +86,7 @@ const PhishingView = () => {
                   size="large"
                   onClick={handleSubmit(onSubmit)}
                 >
-                  Start
+                  Start Quiz
                 </Button>
               </Grid>
             </form>
