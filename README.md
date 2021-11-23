@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Try Phish Me [![Netlify Status](https://api.netlify.com/api/v1/badges/7bb5db96-d22d-488f-ad8c-ecfae11210bb/deploy-status)](https://app.netlify.com/sites/proyecto-apis/deploys)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live deployment](https://proyecto-apis.netlify.app/)
 
-## Available Scripts
+## About
 
-In the project directory, you can run:
+Try Phish Me was developed as a final project for a project administration course at ITESM university. The website consists of three different sections that showcase the dangers of being targeted online or even in person.
 
-### `yarn start`
+The sections are:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Phishing
+- Malware
+- Social Engineering
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Building and Running
 
-### `yarn test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This project utilizes [Yarn Package Manager](https://yarnpkg.com/) for managing dependencies, running, and building the project. Install it if you don't have it already.
 
-### `yarn build`
+### Cloning and Installing Dependencies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+git clone https://github.com/PatoGuereque/Proyecto-APIS.git
+cd Proyecto-APIS
+yarn install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Building
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+You can build the static files by using
 
-### `yarn eject`
+```sh
+yarn build
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+This will output the bundled single page application into `build/`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running Locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This project only contains a frontend, so running it is pretty simple. You run
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```sh
+yarn start
+```
 
-## Learn More
+and this will open a browser window pointing to `localhost:3000`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Code Style
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+This project contains a linter and a prettier to ensure code quality and consistency across the entire codebase. Husky is used for `pre-commit` and `pre-push` hooks, using prettier on pre-commit and eslint on pre-push.
 
-### Code Splitting
+### Eslint
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+We are using the default react's eslint rules. We recommend using the `Eslint Extension for VS Code`. More info [here](https://create-react-app.dev/docs/setting-up-your-editor/#experimental-extending-the-eslint-config)
 
-### Analyzing the Bundle Size
+### Prettier
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Our prettier config is straight-forward, nothing must be said about it. Also the `Prettier extension for VS Codde` is recommended.
 
-### Making a Progressive Web App
+```json
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": true,
+  "singleQuote": true
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+[Netlify](https://www.netlify.com/) is an awesome service that we use for free to build and deploy our application. This helps us tremendously speed up code reviews and also deploy changes to our website without the need to setup a complex pipeline.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+We have a workflow diagram that details how new features and bugfixes go from a commit to production.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Current Workflow](https://i.imgur.com/jAkpDDz.jpg)
